@@ -3,8 +3,11 @@
 ```
 # Package Manager Console
 
-# CMD <Meaning name of migration>
+# CMD <Meaningful name of migration>
 PM> add-migration AddBookToDatabase
+
+# After adding a migration. Update-Database need to be called
+PM> Update-Database
 
 ```
 
