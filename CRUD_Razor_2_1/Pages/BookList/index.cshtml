@@ -21,43 +21,54 @@
 
 <a asp-page="Create" class="btn btn-primary">Create New Book</a>
 
-@if (Model.Books.Count() > 0)
-{
-    <br /><br />
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(m => m.Books.FirstOrDefault().Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(m => m.Books.FirstOrDefault().Author)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(m => m.Books.FirstOrDefault().ISBN)
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.Books)
-            {
+<form method="post">
+    @if (Model.Books.Count() > 0)
+    {
+        <br /><br />
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>
-                        @Html.DisplayFor(m => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => item.Author)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => item.ISBN)
-                    </td>
+                    <th>
+                        @Html.DisplayNameFor(m => m.Books.FirstOrDefault().Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(m => m.Books.FirstOrDefault().Author)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(m => m.Books.FirstOrDefault().ISBN)
+                    </th>
+                    <th></th>
+                    <th></th>
                 </tr>
-            }
-        </tbody>
-    </table>
-    <br />
-}
-else
-{
-    <p>No Books available</p>
-}
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Books)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(m => item.Name)
+                            @item.Name
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => item.Author)
+                            @item.Author
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => item.ISBN)
+                            @item.ISBN
+                        </td>
+                        <td>
+                            <button asp-page-handler="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</button>
+                            <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm">Edit</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <br />
+    }
+    else
+    {
+        <p>No Books available</p>
+    }
+</form>
