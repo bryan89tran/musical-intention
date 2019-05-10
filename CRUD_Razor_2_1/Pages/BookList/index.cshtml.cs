@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CRUD_Razor_2_1.Pages.BookList
 {
-    public class indexModel : PageModel
+    public class IndexModel : PageModel
     {
         private readonly ApplicationDbContext _db;
 
@@ -18,14 +18,16 @@ namespace CRUD_Razor_2_1.Pages.BookList
 
         public IEnumerable<Book> Books { get; set; }
 
-        public indexModel(ApplicationDbContext db)
+
+        public IndexModel(ApplicationDbContext db)
         {
             _db = db;
         }
-            
+
         public async Task OnGet()
         {
             Books = await _db.Books.ToListAsync();
         }
+
     }
 }

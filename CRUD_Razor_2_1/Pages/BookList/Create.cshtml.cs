@@ -38,7 +38,7 @@ namespace CRUD_Razor_2_1.Pages.BookList
             _db.Books.Add(Book);
             await _db.SaveChangesAsync();
             Message = "Book has been created successfully!";
-            return RedirectToPage("Index");
+            return RedirectToPage("Index"); 
         }
     }
 }
