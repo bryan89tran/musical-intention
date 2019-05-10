@@ -16,5 +16,6 @@ namespace CRUD_Razor_2_1.Model
         public string ISBN { get; set; }
 
         public string Author { get; set; }
+
     }
 }
